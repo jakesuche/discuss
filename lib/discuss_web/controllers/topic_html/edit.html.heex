@@ -1,0 +1,27 @@
+
+
+<div class="mx-auto max-w-screen-lg mt-9">
+  <%= form_for @changeset, "/topics/#{@topic_id}", fn f -> %>
+    <div class="form p-3">
+      <div class="flex flex-col space-y-5">
+        <%= hidden_input f, :id, value: @topic_id %>
+
+        <div class="flex flex-col gap-3">
+          <%= text_input f, :title, placeholder: "Title", class: "rounded-sm h-[3rem]" %>
+          <div class="alert_error">
+            <%= error_tag(f, :title) %>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <%= text_input f, :description, placeholder: "Description", class: "rounded-sm h-[3rem]" %>
+          <div class="alert_error">
+            <%= error_tag(f, :description) %>
+          </div>
+        </div>
+      </div>
+
+      <%= submit "Save topic", class: "bg-red-400 mt-4 p-3 text-white rounded-md" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,38 @@
+<.flash_group flash={@flash} />
+
+<div class="w-full relative">
+  <div class="mx-auto max-w-screen-lg mt-9">
+    <div class=" h-full">
+      <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
+        <%= for topics <- @topics do %>
+          <li class="pb-3 sm:pb-4">
+
+
+            <div class="flex items-center space-x-4">
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-gray-900 truncate">
+                  <%= topics.title %>
+                </p>
+                <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                  <%= topics.description %>
+                </p>
+              </div>
+              <div class="inline-flex items-center text-base font-semibold text-gray-900">
+
+                <a class="bg-black text-white px-4 text-xs py-2 rounded-md" href={ ~p"/topics/#{topics.id}/edit" }>Edit</a>
+              </div>
+            </div>
+
+          </li>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+  <a class="fixed right-20 bottom-20 bg-red-500 shadow-md rounded-full" href="/topics/new">
+    <svg width="46" height="46" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 5v14"></path>
+      <path d="M5 12h14"></path>
+    </svg>
+  </a>
+</div>
